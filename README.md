@@ -7,7 +7,7 @@ agree. See the documention [here](https://www.usability.gov/how-to-and-tools/met
 - The application is deployed, and the jar file is added to the git
 - to run the application: **java -jar .\sus-0.0.1-SNAPSHOT.jar**
 - in a browser, open http://localhost:8080 to see the homepage containing a form of questionnaire with five response options
-- a user must answer to the 10 questions before seeing the resulting scale 
+- a user must answer to all 10 questions before seeing the resulting scale 
 - aftre clicking the **compute** button the user sees the scale of SUS and the result is saved to an H2 database
 - the tab **global scores** shows all the stored scales from the database
 - the tab **home** redirects the user to the questionnaire form
