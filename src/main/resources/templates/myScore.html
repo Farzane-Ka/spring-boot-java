@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>System usability score</title>
+    <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+          crossorigin="anonymous">
+</head>
+<body >
+<div th:replace="fragments/navbar.html :: navbar"></div>
+<div class="container my-2">
+    <table border="1" class="table table-striped table-responsive-md">
+        <thead>
+        <tr>
+            <th>My score</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr id="score" th:object="${score}">
+            <td th:text="${score}"></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>
