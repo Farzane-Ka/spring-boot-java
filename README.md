@@ -6,7 +6,6 @@ agree. See the documention [here](https://www.usability.gov/how-to-and-tools/met
 
 - The application is deployed, and the jar file is added to the git
 - to run the application: **java -jar .\sus-0.0.1-SNAPSHOT.jar**
-- run the application in [SusApplication](https://github.com/Farzane-Ka/spring-boot-java/blob/main/src/main/java/com/project/farzane/sus/SusApplication.java) in inteliJ 
 - in a browser, open http://localhost:8080 to see the homepage containing a form of questionnaire with five response options
 - a user must answer to the 10 questions before seeing the resulting scale 
 - aftre clicking the **compute** button the user sees the scale of SUS and the result is saved to an H2 database
