@@ -13,4 +13,8 @@ agree. See the documention [here](https://www.usability.gov/how-to-and-tools/met
 - check the database in: http://localhost:8080/h2-console/  
 - in the prompt console for H2 database, no username or password is needed, JDBC url: jdbc:h2:~/springboot
 
+- The application is deployed, and the jar file is added to the git
+- to run the application: java -jar .\sus-0.0.1-SNAPSHOT.jar
+
+
  
