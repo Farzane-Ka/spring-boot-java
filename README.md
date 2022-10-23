@@ -1,8 +1,8 @@
 # spring-boot-java
 
 ## an application for system usability scale
-SUS (System Usability Scale) is a tool for measuring the usability of a system. It consists 10 questions with 5 answer options from strongly disagree to strongly
-agree. See the documention here [link](https://www.usability.gov/how-to-and-tools/methods/system-usability-scale.html)
+SUS (System Usability Scale) is a tool for measuring the usability of a system. It consists of 10 questions with 5 answer options from strongly disagree to strongly
+agree. See the documention [here](https://www.usability.gov/how-to-and-tools/methods/system-usability-scale.html)
 
 - run the application in [SusApplication](https://github.com/Farzane-Ka/spring-boot-java/blob/main/src/main/java/com/project/farzane/sus/SusApplication.java) in inteliJ 
 - open the url http://localhost:8080 to see the homepage containing a form of questionnaires with five response options
