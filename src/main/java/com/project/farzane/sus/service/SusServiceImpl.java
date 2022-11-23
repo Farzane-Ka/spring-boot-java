@@ -23,14 +23,15 @@ public class SusServiceImpl implements SusService {
     }
 
     @Override public Sus getById(Long id) {
-        Optional<Sus> optional = susRepository.findById(id);
-        Sus susQuestions = null;
-        if (optional.isPresent())
-            susQuestions = optional.get();
-        else
-            throw new RuntimeException(
-                    "Result not found for id : " + id);
-        return susQuestions;
+        return susRepository.findById(id).orElseThrow();
+//        Optional<Sus> optional = susRepository.findById(id);
+//        Sus susQuestions = null;
+//        if (optional.isPresent())
+//            susQuestions = optional.get();
+//        else
+//            throw new RuntimeException(
+//                    "Result not found for id : " + id);
+//        return susQuestions;
     }
 
     @Override public void deleteById(long id)

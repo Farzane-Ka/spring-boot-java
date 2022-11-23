@@ -1,9 +1,9 @@
+
 <form th:fragment="questions" action="#" th:action="@{/myScore}" th:object="${sus}" method="POST">
     <div class="form-group" id="question1">
         <label for="question1">1. I think that I would like to use this system frequently.</label>
         <select name="question1" th:field="*{question1}" class="custom-select" required id="select1">
-            <option value="">Select a number</option>
-            <option th:each="p : ${questionsRate}" th:value="${p.substring(0,1)}" th:text="${p}"/> <!-- substring: only saving the number of the option -->
+            <div th:replace="fragments/option.html :: options"></div>
         </select>
         <div class="invalid-feedback">Please select a number</div>
     </div>
@@ -11,8 +11,7 @@
     <div class="form-group" id="question2">
         <label for="question2">2. I found the system unnecessarily complex.</label>
         <select name="question2" th:field="*{question2}" class="custom-select" required id="select2">
-            <option value="">Select a number</option>
-            <option th:each="p : ${questionsRate}" th:value="${p.substring(0,1)}" th:text="${p}"/>
+            <div th:replace="fragments/option.html :: options"></div>
         </select>
         <div class="invalid-feedback">Please select a number</div>
     </div>
@@ -20,8 +19,7 @@
     <div class="form-group" id="question3">
         <label for="question3">3. I thought the system was easy to use.</label>
         <select name="question3" th:field="*{question3}" class="custom-select" required id="select3">
-            <option value="">Select a number</option>
-            <option th:each="p : ${questionsRate}" th:value="${p.substring(0,1)}" th:text="${p}"/>
+            <div th:replace="fragments/option.html :: options"></div>
         </select>
     </div>
 
@@ -29,56 +27,49 @@
         <label for="question4">4. I think that I would need the support of a technical person to be able to use this
             system.</label>
         <select name="question4" th:field="*{question4}" class="custom-select" required id="select4">
-            <option value="">Select a number</option>
-            <option th:each="p : ${questionsRate}" th:value="${p.substring(0,1)}" th:text="${p}"/>
+            <div th:replace="fragments/option.html :: options"></div>
         </select>
     </div>
 
     <div class="form-group" id="question5">
         <label for="question5">5. I found the various functions in this system were well integrated.</label>
         <select name="question5" th:field="*{question5}" class="custom-select" required id="select5">
-            <option value="">Select a number</option>
-            <option th:each="p : ${questionsRate}" th:value="${p.substring(0,1)}" th:text="${p}"/>
+            <div th:replace="fragments/option.html :: options"></div>
         </select>
     </div>
 
     <div class="form-group" id="question6">
         <label for="question6">6. I thought there was too much inconsistency in this system.</label>
         <select name="question6" th:field="*{question6}" class="custom-select" required id="select6">
-            <option value="">Select a number</option>
-            <option th:each="p : ${questionsRate}" th:value="${p.substring(0,1)}" th:text="${p}"/>
+            <div th:replace="fragments/option.html :: options"></div>
         </select>
     </div>
 
     <div class="form-group" id="question7">
         <label for="question7">7. I would imagine that most people would learn to use this system very quickly.</label>
         <select name="question7" th:field="*{question7}" class="custom-select" required id="select7">
-            <option value="">Select a number</option>
-            <option th:each="p : ${questionsRate}" th:value="${p.substring(0,1)}" th:text="${p}"/>
+            <div th:replace="fragments/option.html :: options"></div>
         </select>
     </div>
 
     <div class="form-group" id="question8">
         <label for="question8">8. I found the system very cumbersome to use.</label>
         <select name="question8" th:field="*{question8}" class="custom-select" required id="select8">
-            <option value="">Select a number</option>
-            <option th:each="p : ${questionsRate}" th:value="${p.substring(0,1)}" th:text="${p}"/>
+            <div th:replace="fragments/option.html :: options"></div>
         </select>
     </div>
 
     <div class="form-group" id="question9">
         <label for="question9">9. I felt very confident using the system.</label>
         <select name="question9" th:field="*{question9}" class="custom-select" required id="select9">
-            <option value="">Select a number</option>
-            <option th:each="p : ${questionsRate}" th:value="${p.substring(0,1)}" th:text="${p}"/>
+            <div th:replace="fragments/option.html :: options"></div>
         </select>
     </div>
 
     <div class="form-group" id="question10">
         <label for="question10">10. I needed to learn a lot of things before I could get going with this system.</label>
         <select name="question10" th:field="*{question10}" class="custom-select" required id="select10">
-            <option value="">Select a number</option>
-            <option th:each="p : ${questionsRate}" th:value="${p.substring(0,1)}" th:text="${p}"/>
+            <div th:replace="fragments/option.html :: options"></div>
         </select>
     </div>
     <button name="submit" type="submit" class="btn btn-primary">Compute</button>

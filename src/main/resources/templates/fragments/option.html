@@ -1,0 +1,4 @@
+<div th:fragment="options">
+    <option value="">Select a number</option>
+    <option th:each="p : ${questionsRate}" th:value="${p}" th:text="${p} == 1 ? ${p} + ' (strongly disagree)' : (${p} == 5 ? ${p} + ' (strongly agree)': ${p})"/>
+</div>

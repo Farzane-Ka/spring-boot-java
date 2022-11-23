@@ -1,6 +1,7 @@
 package com.project.farzane.sus.controller;
 
 import com.project.farzane.sus.model.Sus;
+import com.project.farzane.sus.service.ScoreCalculation;
 import com.project.farzane.sus.service.SusServiceImpl;
 
 
@@ -10,10 +11,13 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import java.time.Instant;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Iterator;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
+import java.util.stream.Collectors;
 
 @Controller
 public class SusController {
@@ -29,7 +33,7 @@ public class SusController {
     public  String viewHomePage(Model model) {
         Sus sus = new Sus();
         model.addAttribute("sus", sus);
-        List<String> questionsRate = Arrays.asList("1 (Strongly disagree)", "2", "3", "4", "5 (Strongly agree)"); //dropDown options
+        List<Integer> questionsRate = Arrays.asList(1,2,3,4,5); //dropDown options
         model.addAttribute("questionsRate", questionsRate);
         return "index";
     }
@@ -39,7 +43,7 @@ public class SusController {
         List<String> scores = new ArrayList<>();
         Iterator<Sus> it = susServiceImpl.getAllSus().iterator();
         while (it.hasNext()) {
-            scores.add(computeScore(it.next()));
+            scores.add(ScoreCalculation.computeScore(it.next()));
         }
         model.addAttribute("globalScores", scores);
         return "globalScores";
@@ -49,27 +53,12 @@ public class SusController {
     public String saveSus(@ModelAttribute("sus") Sus sus, Model model) {
         susServiceImpl.saveSus(sus);
         model.addAttribute("sus", sus );
-        String score = computeScore(sus);
+        model.addAttribute("timestamp", Instant.now());
+        String score = ScoreCalculation.computeScore(sus);
         model.addAttribute("score", score);
         return "myScore";
 
     }
 
-    String computeScore(Sus sus) { // computing the sus score from the questions
-        int score = 0;
-        List<String> questionsRate = Arrays.asList(sus.getQuestion1(),
-                sus.getQuestion2(), sus.getQuestion3(), sus.getQuestion4(),
-                sus.getQuestion5(), sus.getQuestion6(), sus.getQuestion7(),
-                sus.getQuestion8(), sus.getQuestion9(),sus.getQuestion10());
 
-        for (int i = 0; i < questionsRate.size(); i++) {
-            if ((i+1) % 2== 0) { //finding even number questions
-                score += 5 - Integer.parseInt(questionsRate.get(i));
-            } else {
-                score +=  Integer.parseInt(questionsRate.get(i)) -1;
-            }
-        }
-        double susScore = score * 2.5;
-        return String.valueOf(susScore);
-    }
 }
